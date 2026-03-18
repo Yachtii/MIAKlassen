@@ -3,9 +3,6 @@ using Klassen.Model;
 
 namespace ClassExample;
 
-/// <summary>
-/// Hauptprogramm für das Autohändler-Verwaltungssystem
-/// </summary>
 class Program
 {
     // Globale Variablen für die Verwaltung
