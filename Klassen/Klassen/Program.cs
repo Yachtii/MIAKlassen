@@ -8,6 +8,7 @@ class Program
     // Globale Variablen für die Verwaltung
     private static List<TestClass> testClassList = [];
     private static TestClass? selectedTestClass = null;
+    private static List<Demo> demoList = new List<Demo>();
 
     static void Main(string[] args)
     {
@@ -39,6 +40,9 @@ class Program
                 case "5":
                     CallVoidMethod();
                     break;
+                case "6":
+                    CreateDemo();
+                    break;
                 case "0":
                     running = false;
                     Console.WriteLine("Exiting program...");
@@ -69,11 +73,31 @@ class Program
         Console.WriteLine("║ 3  - Update Test String                ║");
         Console.WriteLine("║ 4  - Return Test String Value          ║");
         Console.WriteLine("║ 5  - Void                              ║");
+        Console.WriteLine("║ 6  - Create Demo                       ║");
         Console.WriteLine("║                                        ║");
         Console.WriteLine("║ 0  - Exit                              ║");
         Console.WriteLine("╚════════════════════════════════════════╝");
 
         Console.Write("\nYour choice: ");
+    }
+
+    public static void CreateDemo()
+    {
+        string? demoTitle = Console.ReadLine();
+        string? description = Console.ReadLine();
+        string? idInput = Console.ReadLine();
+        int id = 0;
+        if (int.TryParse(idInput, out int index))
+        {
+            id = index;
+        }
+        else
+        {
+            Console.WriteLine("Invalid selection!");
+        }
+        Demo newDemo = new Demo(demoTitle, id, description);
+        demoList.Add(newDemo);
+        Console.WriteLine(newDemo.Title);
     }
 
     public static void CreateTestClass()
